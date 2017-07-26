@@ -1,0 +1,10 @@
+name: tifftemplate
+version: 1
+description: test
+maintainer: foo@bar.com
+config:
+  image: node:6
+  steps:
+    - echo: echo $FOO
+  environment:
+    FOO: bar
