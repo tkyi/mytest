@@ -1,6 +1,6 @@
 name: tifftemplate
 version: 1
-description: test
+description: test meowt
 maintainer: foo@bar.com
 config:
   image: node:6
