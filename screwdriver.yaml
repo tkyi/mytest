@@ -10,3 +10,5 @@ jobs:
     tag:
         steps:
             - tag: npm install request && node tag.js
+    use-tag:
+        template: tifftemplate@petey
