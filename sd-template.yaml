@@ -1,5 +1,5 @@
 name: tifftemplate
-version: 1
+version: "1"
 description: test
 maintainer: foo@bar.com
 config:
