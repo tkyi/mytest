@@ -4,14 +4,14 @@ var request = require('request');
 
 const params = {
     body: {
-          version: '1.0.0'
+          version: '1.0.1'
       },
       json: true,
       auth: {
           bearer: process.env.SD_TOKEN
       },
       method: 'PUT',
-      url: `https://api.screwdriver.cd/v4/templates/tifftemplate/tags/stable`
+      url: `https://api.screwdriver.cd/v4/templates/tifftemplate/tags/latest`
   };
 
 return new Promise((resolve, reject) => {
