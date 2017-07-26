@@ -1,0 +1,12 @@
+shared:
+    image: node:6
+jobs:
+    # the main job is run in pull requests as well
+    main:
+        steps: 
+            - install: npm install screwdriver-template-main
+            - validate: ./node_modules/.bin/template-validate
+            - publish: ./node_modules/.bin/template-publish
+    tag:
+        steps:
+            - tag: npm install request && node tag.js
