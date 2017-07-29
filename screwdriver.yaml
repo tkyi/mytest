@@ -11,6 +11,5 @@ jobs:
         steps:
             - install: npm install screwdriver-template-main
             - tag: ./node_modules/.bin/template-tag --name tifftemplate --version 1.0.3 --tag latest
-            #- tag: npm install request && node tag.js
     use-tag:
         template: tifftemplate@latest
