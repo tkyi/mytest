@@ -24,8 +24,11 @@ jobs:
         #     beta.screwdriver.cd/executor: queue
         steps:
             - begin_time:  START=$(date +'%s') && meta set time.start $START && echo $START
-            - sleep: sleep 1000
-            - save: echo hello > $SD_ARTIFACTS_DIR/hello.txt
+            # - sleep: sleep 1000
+            - save_hello: echo hello > $SD_ARTIFACTS_DIR/hello.txt
+            - save_hi: echo hi > $SD_ARTIFACTS_DIR/hi.txt
+            - save_bye: echo bye > $SD_ARTIFACTS_DIR/bye.txt
+            - save_goodbye: echo goodbye > $SD_ARTIFACTS_DIR/goodbye.txt
             - end_time:  END=$(date +'%s') && meta set time.end $END && echo $END
             - print_time: DIFF=$(($END - $START)) && echo $DIFF
             - send_receipt: npm install request && node api.js
