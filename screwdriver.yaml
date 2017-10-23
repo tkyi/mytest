@@ -19,10 +19,10 @@ version: 4
 shared:
     image: node:6
 jobs:
-    meow:
+    main:
         # annotations: 
         #     beta.screwdriver.cd/executor: queue
-        requires: [~pr, ~commit]
+        # requires: [~pr, ~commit]
         steps:
             - begin_time:  START=$(date +'%s') && meta set time.start $START && echo $START
             # - sleep: sleep 1000
