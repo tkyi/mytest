@@ -22,8 +22,7 @@ jobs:
     b:
         requires: [main]
         steps:
-            - sleep: sleep 100
-            - echo: echo hi
+            - echo: echo hello
     c:
         requires: [a, b]
         steps:
