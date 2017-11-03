@@ -12,5 +12,19 @@ shared:
 jobs:
     # the main job is run in pull requests as well
     main:
+        requires: [~pr, ~commit]
         steps: 
             - echo: echo "passed"
+    a:
+        requires: [main]
+        steps:
+            - echo: echo hello
+    b:
+        requires: [main]
+        steps:
+            - sleep: sleep 100
+            - echo: echo hi
+    c:
+        requires: [a, b]
+        steps:
+            - echo: echo bye
