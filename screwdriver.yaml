@@ -22,11 +22,4 @@ jobs:
     main:
         requires: [~pr, ~commit]
         steps:
-            - echo: echo meow
-    second:
-        steps:
-            - echo:  echo meow
-    third:
-        requires: [~sd@113:main, ~sd@113:second]
-        steps:
-            - echo:  echo meow
+            - echo: echo $SD_PULL_REQUEST
