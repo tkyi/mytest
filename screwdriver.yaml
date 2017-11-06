@@ -22,4 +22,5 @@ jobs:
     main:
         requires: [~pr, ~commit]
         steps:
+            - echo1: echo $SD_PULL_REQUEST
             - echo: echo $SD_PULL_REQUEST
