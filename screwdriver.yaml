@@ -32,7 +32,7 @@ jobs:
         requires: main
         steps:
             - echo: echo parallel
-     C:
+    C:
         image: node:6
         requires: [A, B]
         steps:
