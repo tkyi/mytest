@@ -21,6 +21,7 @@ jobs:
         image: node:6
         requires: [~pr, ~commit]
         steps:
+            - sleep: sleep 1500
             - echo: echo hi
     A:
         image: node:6
