@@ -18,10 +18,11 @@
 version: 4
 jobs:
     main:
-        image: andywick/moloch-build-6:0.20.2
+        image: node:6
         requires: [~pr, ~commit]
         steps:
-            - git: git --version
+            - set: meta set build_version_1 1234567
+            - get: meta get build_version_1
             - sleep: sleep 1500
             - echo: echo hi
     A:
