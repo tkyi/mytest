@@ -20,7 +20,7 @@ jobs:
     main:
         settings:
             slack:
-                channels: ['723workflow']
+                channels: ['723-workflow']
                 statuses: ['SUCCESS', 'FAILURE']
         image: node:6
         requires: [~pr, ~commit]
