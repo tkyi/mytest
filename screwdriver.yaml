@@ -18,12 +18,16 @@
 version: 4
 jobs:
     main:
+        settings:
+            slack:
+                channels: ['723workflow']
+                statuses: ['SUCCESS', 'FAILURE']
         image: node:6
         requires: [~pr, ~commit]
         steps:
             - set: meta set build_version_1 1234567
             - get: meta get build_version_1
-            - sleep: sleep 1500
+            #- sleep: sleep 1500
             - echo: echo hi
     A:
         image: node:6
