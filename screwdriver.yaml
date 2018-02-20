@@ -25,8 +25,9 @@ jobs:
             #- get: meta get build_version_1
             #- sleep: sleep 1500
             - echo: echo hi
-            - install_binaries: npm i --no-save semantic-release
-            - publish: npx semantic-release
+            - install_binaries: npm i --no-save semantic-release@^7
+            - publish: ./node_modules/.bin/semantic-release pre && npm publish && ./node_modules/.bin/semantic-release post
+            #- publish: npx semantic-release
             #- install: npm install screwdriver-template-main
             #- tag: ./node_modules/.bin/template-tag --name tifftemplate --version 1.0.4 --tag meow
     A:
