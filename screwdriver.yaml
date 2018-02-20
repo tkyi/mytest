@@ -21,12 +21,14 @@ jobs:
         image: node:6
         requires: [~pr, ~commit]
         steps:
-            - set: meta set build_version_1 1234567
-            - get: meta get build_version_1
+            #- set: meta set build_version_1 1234567
+            #- get: meta get build_version_1
             #- sleep: sleep 1500
             - echo: echo hi
-            - install: npm install screwdriver-template-main
-            - tag: ./node_modules/.bin/template-tag --name tifftemplate --version 1.0.4 --tag meow
+            - install_binaries: npm i --no-save semantic-release
+            - publish: ./node_modules/.bin/semantic-release pre && npm publish && ./node_modules/.bin/semantic-release post
+            #- install: npm install screwdriver-template-main
+            #- tag: ./node_modules/.bin/template-tag --name tifftemplate --version 1.0.4 --tag meow
     A:
         image: node:6
         requires: main
