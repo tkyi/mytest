@@ -25,7 +25,7 @@ jobs:
             #- get: meta get build_version_1
             #- sleep: sleep 1500
             - echo: echo hi
-            - install_binaries: npm i --no-save semantic-release@^8
+            - install_binaries: npm i --no-save semantic-release@^15
             - publish: ./node_modules/.bin/semantic-release
             #- publish: npx semantic-release
             #- install: npm install screwdriver-template-main
