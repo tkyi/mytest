@@ -37,14 +37,14 @@ jobs:
         requires: main
         steps:
             - echo: echo parallel
-    C:
+    Cat:
         image: node:6
         requires: [A, B]
         steps:
             - echo: echo bye
     D:
         image: node:6
-        requires: C
+        requires: Cat
         steps:
             - echo: echo hi
 
