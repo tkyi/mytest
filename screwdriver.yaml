@@ -43,4 +43,9 @@ jobs:
         requires: [A, B]
         steps:
             - echo: echo bye
+    D:
+        image: node:6
+        requires: C
+        steps:
+            - echo: echo hi
 
