@@ -52,4 +52,9 @@ jobs:
         image: node:6
         steps:
             - echo: echo hi
+    other_detached:
+        requires: [detached]
+        image: node:6
+        steps:
+            - echo: echo hi
 
