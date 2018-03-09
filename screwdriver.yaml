@@ -18,6 +18,7 @@
 version: 4
 jobs:
     main:
+        requires: [~pr, ~commit]
         image: node:8
         steps:
             #- set: meta set build_version_1 1234567
@@ -37,14 +38,14 @@ jobs:
         requires: main
         steps:
             - echo: echo parallel
-    Cat:
+    C:
         image: node:6
         requires: [A, B]
         steps:
             - echo: echo bye
     D:
         image: node:6
-        requires: Cat
+        requires: [C]
         steps:
             - echo: echo hi
 
