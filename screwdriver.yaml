@@ -48,4 +48,8 @@ jobs:
         requires: [C]
         steps:
             - echo: echo hi
+    detached:
+        image: node:6
+        steps:
+            - echo: echo hi
 
