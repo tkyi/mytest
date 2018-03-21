@@ -17,7 +17,7 @@
 ---
 version: 4
 jobs:
-    thisisareallylongjobnamethatis50charslonggggggggg:
+    thisisareallylongjobnamethatis50charslonggg:
         requires: [~pr, ~commit]
         image: node:8
         steps:
