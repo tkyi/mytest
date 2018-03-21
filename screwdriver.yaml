@@ -32,12 +32,12 @@ jobs:
         image: node:6
         requires: main
         steps:
-            - echo: echo parallel
+            - echo: meta set example.coverage 99.95
     B:
         image: node:6
         requires: main
         steps:
-            - echo: echo parallel
+            - echo: meta get example
     C:
         image: node:6
         requires: [A, B]
