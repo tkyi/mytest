@@ -18,7 +18,7 @@
 version: 4
 jobs:
     main:
-        requires: [~pr, ~commit]
+        requires: []
         image: node:8
         steps:
             #- set: meta set build_version_1 1234567
@@ -28,33 +28,3 @@ jobs:
             #- publish: npx semantic-release
             #- install: npm install screwdriver-template-main
             #- tag: ./node_modules/.bin/template-tag --name tifftemplate --version 1.0.4 --tag meow
-    A:
-        image: node:6
-        requires: main
-        steps:
-            - echo: meta get example.coverage
-    B:
-        image: node:6
-        requires: main
-        steps:
-            - echo: meta get example
-    C:
-        image: node:6
-        requires: [A, B]
-        steps:
-            - echo: echo bye
-    D:
-        image: node:6
-        requires: [C]
-        steps:
-            - echo: echo hi
-    detached:
-        image: node:6
-        steps:
-            - echo: echo hi
-    other_detached:
-        requires: [detached]
-        image: node:6
-        steps:
-            - echo: echo hi
-
