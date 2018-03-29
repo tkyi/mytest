@@ -18,13 +18,12 @@
 version: 4
 jobs:
     main:
-        requires: []
+        requires: [~pr, ~commit]
         image: node:8
         steps:
             #- set: meta set build_version_1 1234567
             #- get: meta get build_version_1
             #- sleep: sleep 1500
-            - meow: echo meow
             - meta: meta get $SOMERANDOMVAR
             - echo: meta set example.coverage 99.95
             #- publish: npx semantic-release
