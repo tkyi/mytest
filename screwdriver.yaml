@@ -25,7 +25,6 @@ jobs:
             #- set: meta set build_version_1 1234567
             #- get: meta get build_version_1
             #- sleep: sleep 1500
-            - echo2: echo meowmeow
             - meta: meta get $SOMERANDOMVAR
             - echo: meta set example.coverage 99.95
             #- publish: npx semantic-release
