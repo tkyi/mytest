@@ -25,6 +25,7 @@ jobs:
             #- set: meta set build_version_1 1234567
             #- get: meta get build_version_1
             #- sleep: sleep 1500
+            - mkdir: mkdir $SD_ARTIFACTS_DIR/folder/
             - write: echo "meow" > $SD_ARTIFACTS_DIR/folder/meow.txt
             - write2: echo "meow" > $SD_ARTIFACTS_DIR/folder/wow.txt
             - write3: echo "meow" > $SD_ARTIFACTS_DIR/folder/blah.txt
