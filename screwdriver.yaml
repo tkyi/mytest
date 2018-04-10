@@ -24,7 +24,7 @@ jobs:
             #- set: meta set build_version_1 1234567
             #- get: meta get build_version_1
             #- sleep: sleep 1500
-            - meta: |
+            - meta1: |
                 NPM_PKG_VERSION=meow
                 meta set docker_tag "v$NPM_PKG_VERSION"
                 echo `meta get docker_tag`
