@@ -18,7 +18,6 @@
 version: 4
 jobs:
     main:
-        requires: [~pr, ~commit]
         image: node:8
         steps:
             #- set: meta set build_version_1 1234567
