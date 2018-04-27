@@ -39,3 +39,8 @@ jobs:
         steps:
             - hi: echo hi
             - meta: meta get example
+    detached:
+        image: node:8
+        steps:
+            - hi: echo hi
+            - meta: meta get example
