@@ -29,6 +29,8 @@ jobs:
                 echo `meta get docker_tag`
             - write5: echo "meow" > $SD_ARTIFACTS_DIR/zzz.txt
             - meta: meta get meow
+            - meow: meta set foo.bar-baz meow
+            - meow2: meta get foo.bar-baz
             - echo: meta set example.coverage 99.95
             #- publish: npx semantic-release
             #- install: npm install screwdriver-template-main
