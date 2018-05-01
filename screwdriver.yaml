@@ -28,9 +28,16 @@ jobs:
                 meta set docker_tag "v$NPM_PKG_VERSION"
                 echo `meta get docker_tag`
             - write5: echo "meow" > $SD_ARTIFACTS_DIR/zzz.txt
-            - sleep: sleep 50
-            - sleep2: sleep 20
-            - sleep3: sleep 5
+            - sleep: |
+                sleep 50
+                sleep 20
+                sleep 5
+                echo meow
+            - sleep2: |
+                sleep 5
+                echo hi
+                sleep 5
+                echo "hi again"
             - meta: meta get meow
             - meow: meta set foo.bar-baz meow
             - meow2: meta get foo.bar-baz
