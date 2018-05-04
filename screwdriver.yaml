@@ -34,7 +34,7 @@ jobs:
                 echo $SD_ROOT_DIR
                 echo $SD_SOURCE_DIR
                 echo $SD_EVENT_ID
-                echo $SD_META_PATH
+                cat $SD_META_PATH
                 echo $SD_PIPELINE_NAME
             - echo: meta set example.coverage 99.95
             #- publish: npx semantic-release
