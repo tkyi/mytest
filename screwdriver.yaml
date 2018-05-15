@@ -19,7 +19,8 @@ jobs:
     main:
         environment:
             FOO: foo
-            BAR: $FOO-bar
+            BAR: \$${FOO}-bar
+            BAZ: $FOO
         requires: [~pr, ~commit]
         image: node:8
         steps:
@@ -29,6 +30,9 @@ jobs:
             - echo: |
                 echo $FOO
                 echo $BAR
+                eval $BAR
+                echo $BAR
+                echo $BAZ
             - cd: |
                 pwd
                 cd ..
