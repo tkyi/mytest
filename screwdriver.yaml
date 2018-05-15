@@ -26,6 +26,8 @@ jobs:
             - cd: |
                 pwd
                 cd ..
+                export FOO="foo"
+                export BAR="$FOO-bar"
             - pwd: pwd
             #- publish: npx semantic-release
             #- install: npm install screwdriver-template-main
