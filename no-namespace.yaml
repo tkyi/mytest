@@ -1,10 +1,10 @@
 name: tiff/template
 version: "1"
-description: test
-maintainer: foo@bar.com
+description: no namespace
+maintainer: bar@baz.com
 config:
-  image: node:6
+  image: node:8
   steps:
-    - echo: echo $FOO
+    - echo: echo meow
   environment:
-    FOO: bar
+    FOO: baz
