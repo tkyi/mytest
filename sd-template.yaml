@@ -1,4 +1,5 @@
-name: tifftemplate
+name: template
+namespace: tiff
 version: "1"
 description: test
 maintainer: foo@bar.com
