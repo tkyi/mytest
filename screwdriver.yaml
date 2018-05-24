@@ -12,37 +12,20 @@
 #            - install: npm install screwdriver-template-main
 #            - token: echo $SD_TOKEN
 #            - tag: ./node_modules/.bin/template-tag --name tifftemplate --version 1.0.4 --tag latest
-#    use-tag:
-#        template: tifftemplate@latest
+
 ---
 jobs:
     main:
-        environment:
-            FOO: foo
-            BAR: \${FOO}-bar
-            BAZ: $FOO
         requires: [~pr, ~commit]
         image: node:8
         steps:
             #- set: meta set build_version_1 1234567
             #- get: meta get build_version_1
             #- sleep: sleep 1500
-            - echo: |
-                echo $FOO
-                echo $BAR
-                eval $BAR
-                echo $BAR
-                echo $BAZ
-            - cd: |
-                pwd
-                cd ..
-                export FOO="foo"
-                export BAR="$FOO-bar"
-                echo $BAR
-            - pwd: pwd
-            #- publish: npx semantic-release
-            #- install: npm install screwdriver-template-main
-            #- tag: ./node_modules/.bin/template-tag --name tifftemplate --version 1.0.4 --tag meow
+            - install: npm install screwdriver-template-main
+            - validate: ./node_modules/.bin/template-validate
+            - publish: ./node_modules/.bin/template-publish
+            - tag: ./node_modules/.bin/template-tag --name tifftemplate --version 1.0.4 --tag meow
     detached:
         image: node:8
         steps:
