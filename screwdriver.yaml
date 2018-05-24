@@ -1,33 +1,27 @@
-#shared:
-#    image: node:6
-#jobs:
-#    # the main job is run in pull requests as well
-#    main:
-#        steps: 
-#            - install: npm install screwdriver-template-main
-#            - validate: ./node_modules/.bin/template-validate
-#            - publish: ./node_modules/.bin/template-publish
-#    tag:
-#        steps:
-#            - install: npm install screwdriver-template-main
-#            - token: echo $SD_TOKEN
-#            - tag: ./node_modules/.bin/template-tag --name tifftemplate --version 1.0.4 --tag latest
-
 ---
 jobs:
-    main:
-        requires: [~pr, ~commit]
-        image: node:8
-        steps:
-            #- set: meta set build_version_1 1234567
-            #- get: meta get build_version_1
-            #- sleep: sleep 1500
-            - install: npm install screwdriver-template-main
-            - validate: ./node_modules/.bin/template-validate
-            - publish: ./node_modules/.bin/template-publish
-            - tag: ./node_modules/.bin/template-tag --name tifftemplate --version 1.0.4 --tag meow
-    detached:
-        image: node:8
-        steps:
-            - hi: echo hi
-            - meta: meta get example
+  main:
+    requires: [~pr, ~commit]
+    steps:
+    - install_prerequisites: npm install -g screwdriver-template-main
+    - validate_namespace_template: |
+        template-validate
+    - validate_no-namespace_template: |
+        export SD_TEMPLATE_PATH=no-namespace.yaml
+        template-validate
+  publish_namespace_template:
+    requires: [main]
+    steps:
+    - install_prerequisites: npm install -g screwdriver-template-main
+    - publish:  template-publish | tee publish.output
+    - determine_version: cat publish.output | awk -F[@\ ] '{print $3}' | tee VERSION
+    - save_version: /opt/sd/meta set template.template_namespace.version `cat VERSION`
+  publish_no-namespace_template:
+    requires: [main]
+    environment:
+      SD_TEMPLATE_PATH: no-namespace.yaml
+    steps:
+    - install_prerequisites: npm install -g screwdriver-template-main
+    - publish:  template-publish | tee publish.output
+    - determine_version: cat publish.output | awk -F[@\ ] '{print $3}' | tee VERSION
+    - save_version: /opt/sd/meta set template.template_no-namespace.version `cat VERSION`
