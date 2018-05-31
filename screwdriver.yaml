@@ -14,6 +14,9 @@ jobs:
     - validate_no-namespace_template: |
         export SD_TEMPLATE_PATH=no-namespace.yaml
         template-validate
+    - validate_default-namespace_template: |
+        export SD_TEMPLATE_PATH=default-namespace.yaml
+        template-validate
   publish_namespace_template:
     requires: [main]
     steps:
@@ -21,6 +24,9 @@ jobs:
     - publish:  template-publish | tee publish.output
     - determine_version: cat publish.output | awk -F[@\ ] '{print $3}' | tee VERSION
     - save_version: /opt/sd/meta set template.template_namespace.version `cat VERSION`
+    - tag: |
+        template-tag --name tiff/template --version `cat VERSION` --tag namespace
+        template-tag --name tiff/template --version `cat VERSION` --tag stable
   publish_no-namespace_template:
     requires: [main]
     environment:
@@ -30,3 +36,16 @@ jobs:
     - publish:  template-publish | tee publish.output
     - determine_version: cat publish.output | awk -F[@\ ] '{print $3}' | tee VERSION
     - save_version: /opt/sd/meta set template.template_no-namespace.version `cat VERSION`
+    - tag: |
+        template-tag --name tiff/template --version `cat VERSION` --tag latest
+  publish_default-namespace_template:
+    requires: [main]
+    environment:
+      SD_TEMPLATE_PATH: default-namespace.yaml
+    steps:
+    - install_prerequisites: npm install -g screwdriver-template-main
+    - publish:  template-publish | tee publish.output
+    - determine_version: cat publish.output | awk -F[@\ ] '{print $3}' | tee VERSION
+    - save_version: /opt/sd/meta set template.template_default-namespace.version `cat VERSION`
+    - tag: |
+        template-tag --name tifftemplate --version `cat VERSION` --tag default
