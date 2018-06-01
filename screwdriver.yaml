@@ -18,16 +18,16 @@
 jobs:
     main:
         requires: [~pr, ~commit]
-        image: node:8
+        template: tiff/template@namespace
         steps:
             #- set: meta set build_version_1 1234567
             #- get: meta get build_version_1
             #- sleep: sleep 1500
-            - echo: |
-                echo $SCM_URL
-                echo $GIT_URL
-                echo $SD_BUILD_SHA
-            - pwd: pwd
+            - postecho: |
+                echo $SD_TEMPLATE_NAME
+                echo $SD_TEMPLATE_NAMESPACE
+                echo $SD_TEMPLATE_FULLNAME
+                echo $SD_TEMPLATE_VERSION
             #- publish: npx semantic-release
             #- install: npm install screwdriver-template-main
             #- tag: ./node_modules/.bin/template-tag --name tifftemplate --version 1.0.4 --tag meow
