@@ -1,0 +1,10 @@
+name: tiff/template
+version: "1"
+description: no namespace
+maintainer: bar@baz.com
+config:
+  image: node:8
+  steps:
+    - echo: echo meow
+  environment:
+    FOO: baz

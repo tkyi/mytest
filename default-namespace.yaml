@@ -1,0 +1,8 @@
+name: tifftemplate
+version: "1"
+description: should have default namespace
+maintainer: default@baz.com
+config:
+  image: node:8
+  steps:
+    - echo: echo meow
