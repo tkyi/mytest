@@ -1,9 +1,6 @@
 ---
 shared:
   image: node:8
-  environment:
-    # DO NOT OVERRIDE THIS SETTING
-    SD_API_URL: 'http://172.142.26.76:9001/v4/'
 jobs:
   main:
     requires: [~pr, ~commit]
