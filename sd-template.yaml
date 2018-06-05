@@ -4,8 +4,10 @@ version: "1"
 description: test
 maintainer: foo@bar.com
 config:
-  image: node:6
+  image: node:8
   steps:
-    - echo: echo $FOO
-  environment:
-    FOO: bar
+    - setup-ci: git clone https://github.com/screwdriver-cd/toolbox.git ci
+    - install: npm install
+    - duplicate: NPM_FILTER=screwdriver- ./ci/npm-dups.sh
+    - test: npm test
+    - coverage: ./ci/coverage.sh
