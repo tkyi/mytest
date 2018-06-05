@@ -1,5 +1,3 @@
 # mytest
 
-meow
-hi
-hi
+blah
