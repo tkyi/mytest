@@ -21,14 +21,9 @@
     "yahoo"
   ],
   "license": "BSD-3-Clause",
-  "author": "St. John Johnson <st.john.johnson@gmail.com>",
+  "author": "Tiffany Kyi <tiffanykyi@gmail.com>",
   "contributors": [
     "Dao Lam <daolam112@gmail.com>",
-    "Darren Matsumoto <aeneascorrupt@gmail.com>",
-    "Jeremiah Wuenschel <jeremiah.wuenschel@gmail.com>",
-    "Noah Katzman <nbkatzman@gmail.com>",
-    "Peter Peterson <jedipetey@gmail.com>",
-    "St. John Johnson <st.john.johnson@gmail.com",
     "Tiffany Kyi <tiffanykyi@gmail.com>"
   ],
   "release": {
