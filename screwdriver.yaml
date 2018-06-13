@@ -1,11 +1,3 @@
-shared:
-    image: node:6
-jobs:
-    # the main job is run in pull requests as well
-    main:
-        steps: 
-            - echo: echo "fail"
----
 version: 4
 shared:
     image: node:6
@@ -14,8 +6,9 @@ jobs:
     main:
         requires: [~pr, ~commit]
         steps: 
-            - sleep: sleep 1500
-            - echo: echo $SD_PULL_REQUEST
+            #- sleep: sleep 1500
+            - echo: echo $SD_SONAR_HOST
+            - echo2: echo $SD_SONAR_AUTH_URL
     a:
         requires: [main]
         steps:
