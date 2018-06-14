@@ -18,7 +18,6 @@
 jobs:
     main:
         requires: [~pr, ~commit]
-        template: tiff/template@namespace
         steps:
             #- set: meta set build_version_1 1234567
             #- get: meta get build_version_1
