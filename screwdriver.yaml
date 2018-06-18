@@ -22,7 +22,7 @@ jobs:
         steps:
             #- set: meta set build_version_1 1234567
             #- get: meta get build_version_1
-            #- sleep: sleep 1500
+            - sleep: sleep 1500
             - postecho: |
                 echo $SD_TEMPLATE_NAME
                 echo $SD_TEMPLATE_NAMESPACE
