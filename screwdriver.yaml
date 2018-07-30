@@ -17,9 +17,15 @@
 ---
 shared:
     settings:
-        email:
-            addresses: [tiffanykyi@gmail.com]
-            statuses: [SUCCESS, FAILURE]
+        slack:
+                channels:
+                     - 'slack-example'
+                statuses:
+                     - SUCCESS
+                     - FAILURE
+                     - ABORTED
+                     - QUEUED
+                     - RUNNING
 jobs:
     main:
         requires: [~pr, ~commit]
