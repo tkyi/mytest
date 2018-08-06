@@ -26,6 +26,7 @@ jobs:
             - sleep: sleep 500
             - postecho: |
                 cat $SD_SOURCE_DIR/ascii-art.txt
+            - test: echo hello
             #- publish: npx semantic-release
             #- install: npm install screwdriver-template-main
             #- tag: ./node_modules/.bin/template-tag --name tifftemplate --version 1.0.4 --tag meow
