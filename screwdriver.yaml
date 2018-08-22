@@ -15,6 +15,16 @@
 #    use-tag:
 #        template: tifftemplate@latest
 ---
+shared:
+     settings:
+        slack:
+            channels:
+                - 'slack-test'
+                - 'slack-example'
+                statuses:
+                     - SUCCESS
+                     - FAILURE
+                     - ABORTED
 jobs:
     main:
         requires: [~pr, ~commit]
