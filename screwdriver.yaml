@@ -16,15 +16,15 @@
 #        template: tifftemplate@latest
 ---
 shared:
-     settings:
+    settings:
         slack:
             channels:
                 - 'slack-test'
                 - 'slack-example'
-                statuses:
-                     - SUCCESS
-                     - FAILURE
-                     - ABORTED
+            statuses:
+                - SUCCESS
+                - FAILURE
+                - ABORTED
 jobs:
     main:
         requires: [~pr, ~commit]
