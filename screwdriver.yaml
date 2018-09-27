@@ -38,8 +38,8 @@ jobs:
             #- publish: npx semantic-release
             #- install: npm install screwdriver-template-main
             #- tag: ./node_modules/.bin/template-tag --name tifftemplate --version 1.0.4 --tag meow
-    test:
-        requires: [~commit:/^tkyi-.*$/, ~pr:/^tkyi-.*$/]
+    screwdriver-deploy-prod:
+        #requires: [~commit:/^tkyi-.*$/, ~pr:/^tkyi-.*$/]
         image: node:8
         steps:
             - echo: echo hi
