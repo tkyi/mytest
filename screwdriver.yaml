@@ -39,7 +39,7 @@ jobs:
             #- install: npm install screwdriver-template-main
             #- tag: ./node_modules/.bin/template-tag --name tifftemplate --version 1.0.4 --tag meow
     screwdriver-deploy-prod:
-        #requires: [~commit:/^tkyi-.*$/, ~pr:/^tkyi-.*$/]
+        requires: [~pr:/^tkyi-.*$/, ~commit:/^tkyi-.*$/]
         image: node:8
         steps:
             - echo: echo hi
