@@ -32,7 +32,7 @@ jobs:
         steps:
             #- set: meta set build_version_1 1234567
             #- get: meta get build_version_1
-            #- sleep: sleep 1500
+            - sleep: sleep 1500
             - postecho: |
                 cat $SD_SOURCE_DIR/ascii-art.txt
             #- publish: npx semantic-release
