@@ -45,7 +45,7 @@ jobs:
         requires: [~sd@386:meow]
         image: node:8
         steps:
-            - echo: echo hi
+            - echo: echo bye
     specific-branch:
         requires: [~pr:/^tkyi-patch-1$/, ~commit:/^tkyi-patch-1$/]
         image: node:8
