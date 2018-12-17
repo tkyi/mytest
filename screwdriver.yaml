@@ -55,3 +55,13 @@ jobs:
         image: node:8
         steps:
             - echo: echo hi
+    promote:
+        requires: [main]
+        image: node:8
+        steps:
+            - echo: echo hi
+    test:
+        requires: [~promote]
+        image: node:8
+        steps:
+            - echo: echo hi
