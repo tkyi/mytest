@@ -51,3 +51,7 @@ jobs:
         image: node:8
         steps:
             - echo: echo hi
+    detached:
+        image: node:8
+        steps:
+            - echo: echo hi
