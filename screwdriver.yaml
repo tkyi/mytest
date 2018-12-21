@@ -45,7 +45,7 @@ jobs:
         requires: [~sd@386:meow]
         image: node:8
         steps:
-            - echo: echo bye
+            - echo: echo $(meta get meow)
     specific-branch:
         requires: [~pr:/^tkyi-patch-1$/, ~commit:/^tkyi-patch-1$/]
         image: node:8
