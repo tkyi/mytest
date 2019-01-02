@@ -36,7 +36,7 @@ jobs:
             - postecho: |
                 cat $SD_SOURCE_DIR/ascii-art.txt
             - meta: |
-                meta set summary.coverage "Coverage increased by 15%"
+                meta set summary.coverage "Coverage increased by this much: 15%"
                 meta set summary.markdown "this markdown comment is **bold** and *italic*"
             #- publish: npx semantic-release
             #- install: npm install screwdriver-template-main
