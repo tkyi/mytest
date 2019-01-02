@@ -38,6 +38,7 @@ jobs:
             - meta: |
                 meta set summary.coverage "Coverage increased by this much: 15%"
                 meta set summary.markdown "this markdown comment is **bold** and *italic*"
+                meta get summary
             #- publish: npx semantic-release
             #- install: npm install screwdriver-template-main
             #- tag: ./node_modules/.bin/template-tag --name tifftemplate --version 1.0.4 --tag meow
