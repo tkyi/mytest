@@ -36,8 +36,8 @@ jobs:
             - postecho: |
                 cat $SD_SOURCE_DIR/ascii-art.txt
             - meta: |
-                meta set summary.coverage "Coverage increased by 15%"
-                meta set summary.markdown "this markdown comment is **bold** and *italic*"
+                meta set summary.coverage "Coverage increased by 90%"
+                meta set summary.markdown "this markdown comment is **bold** and *italic* meow"
             #- publish: npx semantic-release
             #- install: npm install screwdriver-template-main
             #- tag: ./node_modules/.bin/template-tag --name tifftemplate --version 1.0.4 --tag meow
