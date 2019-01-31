@@ -49,7 +49,7 @@ jobs:
         steps:
             - echo: echo $(meta get meow --external sd@386:meow)
     specific-branch:
-        description: 'job to test the specific branch requires feature'
+        description: 'job to test the specific branch requires features'
         requires: [~pr:/^tkyi-patch-1$/, ~commit:/^tkyi-patch-1$/]
         image: node:8
         steps:
