@@ -36,7 +36,7 @@ jobs:
             - postecho: |
                 cat $SD_SOURCE_DIR/ascii-art.txt
             - findbugs: |
-                meta set meta.status.findbugs '{"status":"FAILURE","message":"923 issues found. Previous count: 914 issues.","url":"hello.com"}'
+                meta set meta.status.findbugs '{"status":"FAILURE","message":"923 issues found. Previous count: 914 issues.","url":"http://screwdriver.cd"}'
             - coverage: |
                 meta set meta.status.coverage '{"status":"SUCCESS","message":"Coverage is above 80%."}'
             #    meta set meta.status.findbugs "{\"status\":\"FAILURE\",\"message\":\"923 issues found. Previous count: 912 issues.\",\"url\":\"http://findbugs.com\"}"
