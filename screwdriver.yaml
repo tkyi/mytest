@@ -33,7 +33,8 @@ jobs:
         steps:
             #- set: meta set build_version_1 1234567
             #- get: meta get build_version_1
-            - sleep: sleep 3600
+            #- sleep: sleep 3600
+            - echo: echo $SD_UI_URL
             - postecho: |
                 cat $SD_SOURCE_DIR/ascii-art.txt
             - meta: |
