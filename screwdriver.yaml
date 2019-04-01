@@ -34,7 +34,11 @@ jobs:
             #- set: meta set build_version_1 1234567
             #- get: meta get build_version_1
             #- sleep: sleep 3600
-            - echo: echo $SD_UI_URL
+            - echo: |
+                echo $SD_UI_URL
+                echo $SD_API_URL
+                echo $SD_STORE_URL
+                echo $SD_BUILD_URL
             - postecho: |
                 cat $SD_SOURCE_DIR/ascii-art.txt
             - meta: |
