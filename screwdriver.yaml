@@ -42,8 +42,8 @@ jobs:
             - postecho: |
                 cat $SD_SOURCE_DIR/ascii-art.txt
             - meta: |
-                meta set summary.coverage "Coverage increased by 15%"
-                meta set summary.markdown "this markdown comment is **bold** and *italic*"
+                meta set meta.status.findbugs '{"status":"FAILURE","message":"923 issues found. Previous count: 914 issues.","url":"http://screwdriver.cd"}'
+                meta set meta.status.coverage '{"status":"SUCCESS","message":"Coverage is above 80%."}'
             #- publish: npx semantic-release
             #- install: npm install screwdriver-template-main
             #- tag: ./node_modules/.bin/template-tag --name tifftemplate --version 1.0.4 --tag meow
@@ -54,7 +54,7 @@ jobs:
         steps:
             - echo: echo $(meta get meow --external sd@386:meow)
     specific-branch:
-        description: 'job to test the specific branch requires feature'
+        description: 'job to test the specific branch requires features'
         requires: [~pr:/^tkyi-patch-1$/, ~commit:/^tkyi-patch-1$/]
         image: node:8
         steps:
