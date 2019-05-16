@@ -1,0 +1,6 @@
+jobs:
+  main:
+    requires: [~pr, ~commit]
+    image: node:8
+    steps:
+      - echo: echo hi
