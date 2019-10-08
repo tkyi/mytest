@@ -25,6 +25,7 @@ shared:
                 - SUCCESS
                 - FAILURE
                 - ABORTED
+            minimized: true
 jobs:
     main:
         description: 'hello I am the first job that will run'
