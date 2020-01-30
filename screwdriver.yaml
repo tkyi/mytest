@@ -29,7 +29,7 @@ jobs:
         image: node:8
         steps:
             - echo: echo hi
-            #- sleep: sleep 2m
+            - sleep: sleep 2m
     join_job:
         description: 'job to test the specific branch requires feature'
         requires: ['internal_fork', 'sd@2:external_fork']
