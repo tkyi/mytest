@@ -4,3 +4,18 @@ jobs:
     image: node:8
     steps:
       - echo: echo hi
+  fork1:
+    requires: [main]
+    image: node:8
+    steps:
+      - echo: echo hi
+  fork2:
+    requires: [main]
+    image: node:8
+    steps:
+      - echo: echo hi
+  join:
+    requires: [fork1, fork2]
+    image: node:8
+    steps:
+      - echo: echo hi
