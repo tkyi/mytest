@@ -9,6 +9,7 @@ jobs:
     image: node:8
     steps:
       - echo: echo hi
+      - sleep: sleep 1m
   fork2:
     requires: [main]
     image: node:8
