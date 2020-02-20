@@ -4,19 +4,23 @@ jobs:
     image: node:8
     steps:
       - echo: echo hi
+      - meta: meta set example.main meow
   fork1:
     requires: [main]
     image: node:8
     steps:
       - echo: echo hi
-      - sleep: sleep 1m
+      - meta: meta set example.coverage 1
   fork2:
     requires: [main]
     image: node:8
     steps:
       - echo: echo hi
+      - meta: meta set example.coverage 2
   join:
     requires: [fork1, fork2]
     image: node:8
     steps:
       - echo: echo hi
+      - meta_set: meta set example.join hi
+      - meta: meta get example
