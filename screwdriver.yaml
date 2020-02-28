@@ -23,16 +23,22 @@ jobs:
         steps:
             - echo: |
                 cat $SD_SOURCE_DIR/ascii-art.txt
-    internal_fork:
+    internal_fork1:
         description: 'this is the production deploy job but really it just gets the external meta'
         requires: [main]
         image: node:8
         steps:
             - echo: echo hi
             - sleep: sleep 3m
+    internal_fork2:
+        description: 'this is the production deploy job but really it just gets the external meta'
+        requires: [main]
+        image: node:8
+        steps:
+            - echo: echo hi
     join_job:
         description: 'job to test the specific branch requires feature'
-        requires: ['internal_fork', 'sd@3983:external_fork']
+        requires: ['internal_fork1', 'internal_fork2', 'sd@3983:external_fork1', 'sd@3983:external_fork2']
         image: node:8
         steps:
             - echo: echo hi
