@@ -38,7 +38,7 @@ jobs:
             - sleep: sleep 1m
     join_job:
         description: 'job to test the specific branch requires feature'
-        requires: ['internal_fork1', 'internal_fork2', 'sd@2:external_fork', 'sd@4:external_fork']
+        requires: ['internal_fork1', 'internal_fork2', 'sd@2:external_fork1', 'sd@2:external_fork2', 'sd@4:external_fork']
         image: node:8
         steps:
             - echo: echo hi
