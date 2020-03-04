@@ -1,6 +1,18 @@
+shared:
+    image: node:8
+    steps:
+      - echo: echo hi
 jobs:
-  main:
+  chain1:
     requires: [~pr, ~commit, ~sd@39:final]
+  chain2:
+    requires: [chain1]
+  chain3:
+    requires: [chain2]
+  chain4:
+    requires: [chain3]
+  main:
+    requires: [chain4]
     image: node:8
     steps:
       - echo: echo hi
