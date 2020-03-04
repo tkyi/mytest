@@ -1,44 +1,26 @@
-#shared:
-#    image: node:6
-#jobs:
-#    # the main job is run in pull requests as well
-#    main:
-#        steps: 
-#            - install: npm install screwdriver-template-main
-#            - validate: ./node_modules/.bin/template-validate
-#            - publish: ./node_modules/.bin/template-publish
-#    tag:
-#        steps:
-#            - install: npm install screwdriver-template-main
-#            - token: echo $SD_TOKEN
-#            - tag: ./node_modules/.bin/template-tag --name tifftemplate --version 1.0.4 --tag latest
-#    use-tag:
-#        template: tifftemplate@latest
----
 jobs:
-    main:
-        description: 'hello I am the first job that will run'
-        requires: [~pr, ~commit]
-        image: node:8
-        steps:
-            - echo: |
-                cat $SD_SOURCE_DIR/ascii-art.txt
-    internal_fork1:
-        description: 'this is the production deploy job but really it just gets the external meta'
-        requires: [main]
-        image: node:8
-        steps:
-            - echo: echo hi
-            - sleep: sleep 3m
-    internal_fork2:
-        description: 'this is the production deploy job but really it just gets the external meta'
-        requires: [main]
-        image: node:8
-        steps:
-            - echo: echo hi
-    join_job:
-        description: 'job to test the specific branch requires feature'
-        requires: ['internal_fork1', 'internal_fork2', 'sd@3983:external_fork1', 'sd@3983:external_fork2']
-        image: node:8
-        steps:
-            - echo: echo hi
+  main:
+    requires: [~pr, ~commit, ~sd@5:join]
+    image: node:8
+    steps:
+      - echo: echo hi
+      - meta: meta set example.main meow
+  fork1:
+    requires: [main]
+    image: node:8
+    steps:
+      - echo: echo hi
+      - meta: meta set example.coverage 1
+  fork2:
+    requires: [main]
+    image: node:8
+    steps:
+      - echo: echo hi
+      - meta: meta set example.coverage 2
+  join:
+    requires: [fork1, fork2]
+    image: node:8
+    steps:
+      - echo: echo hi
+      - meta_set: meta set example.join hi
+      - meta: meta get example
