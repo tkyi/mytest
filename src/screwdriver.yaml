@@ -1,6 +1,6 @@
 jobs:
   main:
-    requires: [~pr, ~commit]
+    requires: [~pr, ~commit, ~sd@39:final]
     image: node:8
     steps:
       - echo: echo hi
