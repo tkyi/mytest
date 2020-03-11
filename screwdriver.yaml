@@ -1,7 +1,7 @@
 shared:
     image: node:8
     steps:
-        - echo: echo woof
+        - echo: echo wooff
 jobs:
     stg-build-trigger:
         requires: [~sd@41:set_branch]
