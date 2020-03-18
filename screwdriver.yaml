@@ -9,16 +9,30 @@ jobs:
     requires: [main]
     image: node:8
     steps:
-      - echo: echo hi
-      - meta: meta set example.coverage 1
+      - echo: sleep 30
   fork2:
     requires: [main]
     image: node:8
     steps:
       - echo: echo hi
       - meta: meta set example.coverage 2
+  fork3:
+    requires: [main]
+    image: node:8
+    steps:
+      - sleep: sleep 30
+  fork4:
+    requires: [main]
+    image: node:8
+    steps:
+      - sleep: sleep 30
+  fork5:
+    requires: [main]
+    image: node:8
+    steps:
+      - sleep: sleep 30
   join:
-    requires: [fork1, fork2]
+    requires: [fork1, fork2, fork3, fork4, fork5]
     image: node:8
     steps:
       - echo: echo hi
