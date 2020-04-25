@@ -1,13 +1,7 @@
-#pipeline 7
+#pipeline 8
 jobs:
-    external_fork1:
+    external_fork:
         description: 'this is the production deploy job but really it just gets the external meta'
-        requires: [~sd@6:main]
-        image: node:8
-        steps:
-            - echo: echo hi
-    external_fork2:
-        description: 'job to test the specific branch requires feature'
         requires: [~sd@6:main]
         image: node:8
         steps:
