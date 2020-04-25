@@ -1,21 +1,14 @@
-#pipeline 6
+#pipeline 7
 jobs:
-    main:
-        description: 'hello I am the first job that will run'
-        requires: [~pr, ~commit]
-        image: node:8
-        steps:
-            - echo: |
-                cat $SD_SOURCE_DIR/ascii-art.txt
-    internal_fork1:
+    external_fork1:
         description: 'this is the production deploy job but really it just gets the external meta'
-        requires: [main]
+        requires: [~sd@6:main]
         image: node:8
         steps:
             - echo: echo hi
-    join_job:
+    external_fork2:
         description: 'job to test the specific branch requires feature'
-        requires: ['internal_fork1', 'sd@7:external_fork1', 'sd@7:external_fork2', 'sd@8:external_fork']
+        requires: [~sd@6:main]
         image: node:8
         steps:
             - echo: echo hi
