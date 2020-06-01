@@ -7,15 +7,24 @@ jobs:
         steps:
             - echo: |
                 cat $SD_SOURCE_DIR/ascii-art.txt
+            - set-coverage-and-test-results: |
+                meta set tests.coverage 40.023423 # this should be the coverage percentage number
+                meta set tests.results 4/10 # this should be `pass_tests_number/total_tests_number`
     internal_fork1:
         description: 'this is the production deploy job but really it just gets the external meta'
         requires: [main]
         image: node:8
         steps:
             - echo: echo hi
+            - set-coverage-and-test-results: |
+                meta set tests.coverage 100.00 # this should be the coverage percentage number
+                meta set tests.results 10/10 # this should be `pass_tests_number/total_tests_number`
     join_job:
         description: 'job to test the specific branch requires feature'
         requires: ['internal_fork1', 'sd@7:external_fork1', 'sd@7:external_fork2', 'sd@8:external_fork']
         image: node:8
         steps:
             - echo: echo hi
+            - set-coverage-and-test-results: |
+                meta set tests.coverage 33.3 # this should be the coverage percentage number
+                meta set tests.results 4/10 # this should be `pass_tests_number/total_tests_number`
