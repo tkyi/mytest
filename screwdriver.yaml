@@ -23,7 +23,7 @@ jobs:
         steps:
             - echo: |
                 cat $SD_SOURCE_DIR/ascii-art.txt
-            - check-comment: meta set meta.summary.SBT_PROJECT_CHANGELOG "hello this is a PR comment"
+            - check-comment: meta set meta.summary.SBT_PROJECT_CHANGELOG "hello this is a PR comment number 2"
     internal_fork1:
         description: 'this is the production deploy job but really it just gets the external meta'
         requires: [main]
