@@ -1,9 +1,12 @@
 #pipeline 6
+shared:
+    image: node:8
+    steps:
+        - echo: echo hi
 jobs:
     main:
         description: 'hello I am the first job that will run'
         requires: [~pr, ~commit]
-        image: node:8
         steps:
             - echo: |
                 cat $SD_SOURCE_DIR/ascii-art.txt
@@ -11,18 +14,16 @@ jobs:
                 meta set tests.coverage 40.023423 # this should be the coverage percentage number
                 meta set tests.results 4/10 # this should be `pass_tests_number/total_tests_number`
     internal_fork1:
-        description: 'this is the production deploy job but really it just gets the external meta'
         requires: [main]
-        image: node:8
-        steps:
-            - echo: echo hi
-            - set-coverage-and-test-results: |
-                meta set tests.coverage 100.00 # this should be the coverage percentage number
-                meta set tests.results 10/10 # this should be `pass_tests_number/total_tests_number`
+    internal_fork2:
+        requires: [main]
+    internal_fork3:
+        requires: [main]
+    internal_fork4:
+        requires: [main]
     join_job:
         description: 'job to test the specific branch requires feature'
-        requires: ['internal_fork1', 'sd@7:external_fork1', 'sd@7:external_fork2', 'sd@8:external_fork']
-        image: node:8
+        requires: ['internal_fork1', 'internal_fork2', 'internal_fork3', 'internal_fork4']
         steps:
             - echo: echo hi
             - set-coverage-and-test-results: |
