@@ -34,6 +34,7 @@ jobs:
             #- set: meta set build_version_1 1234567
             #- get: meta get build_version_1
             #- sleep: sleep 1500
+            - cmd-test: sd-cmd exec screwdriver/docker-trigger@1.0.0
             - postecho: |
                 cat $SD_SOURCE_DIR/ascii-art.txt
             - meta: |
