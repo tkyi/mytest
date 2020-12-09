@@ -28,7 +28,7 @@ jobs:
         requires: [main]
         image: node:8
         steps:
-            - echo: echo hi
+            - echo: meta set meta.package.version "3206-internal"
             - sleep: sleep 3m
     internal_fork2:
         description: 'this is the production deploy job but really it just gets the external meta'
@@ -41,4 +41,6 @@ jobs:
         requires: ['internal_fork1', 'internal_fork2', 'sd@3983:external_fork1', 'sd@3983:external_fork2']
         image: node:8
         steps:
-            - echo: echo hi
+            - echo: meta get meta.package.version
+            - echoExternal: meta get meta.package.version --external sd@3983:external_fork1
+            - cat: cat /sd/meta
