@@ -43,4 +43,4 @@ jobs:
         steps:
             - echo: meta get meta.package.version
             - echoExternal: meta get meta.package.version --external sd@3983:external_fork1
-            - cat: cat /sd/meta
+            - cat: cp -a /sd/meta/. $SD_ARTIFACTS_DIR/meta/
