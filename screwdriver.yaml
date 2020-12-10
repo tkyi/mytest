@@ -24,12 +24,14 @@ jobs:
             - echo: |
                 meta get meta.package.version --external sd@3983:external_fork1
                 cat $SD_SOURCE_DIR/ascii-art.txt
+            - cat: cp -a /sd/meta/. $SD_ARTIFACTS_DIR/meta/
     internal_fork1:
         description: 'this is the production deploy job but really it just gets the external meta'
         requires: [main]
         image: node:8
         steps:
             - echo: meta set meta.package.version "3206-internal"
+            - cat: cp -a /sd/meta/. $SD_ARTIFACTS_DIR/meta/
             - sleep: sleep 3m
     internal_fork2:
         description: 'this is the production deploy job but really it just gets the external meta'
@@ -37,6 +39,7 @@ jobs:
         image: node:8
         steps:
             - echo: echo hi
+            - cat: cp -a /sd/meta/. $SD_ARTIFACTS_DIR/meta/
     join_job:
         description: 'job to test the specific branch requires feature'
         requires: ['internal_fork1', 'internal_fork2', 'sd@3983:external_fork1', 'sd@3983:external_fork2']
