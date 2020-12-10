@@ -22,6 +22,7 @@ jobs:
         image: node:8
         steps:
             - echo: |
+                meta get meta.package.version --external sd@3983:external_fork1
                 cat $SD_SOURCE_DIR/ascii-art.txt
     internal_fork1:
         description: 'this is the production deploy job but really it just gets the external meta'
