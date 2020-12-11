@@ -46,5 +46,12 @@ jobs:
         image: node:8
         steps:
             - echo: meta get meta.package.version
+            #- echoExternal: meta get meta.package.version --external sd@3983:external_fork1
+            - cat: cp -a /sd/meta/. $SD_ARTIFACTS_DIR/meta/
+    join_downstream:
+        requires: ['join_job']
+        image: node:8
+        steps:
             - echoExternal: meta get meta.package.version --external sd@3983:external_fork1
             - cat: cp -a /sd/meta/. $SD_ARTIFACTS_DIR/meta/
+    
