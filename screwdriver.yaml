@@ -31,6 +31,7 @@ jobs:
         image: node:8
         steps:
             - echo: meta set meta.package.version "3206-internal"
+            - overwrite: meta set sd.3983.external_fork1 ""
             - cat: cp -a /sd/meta/. $SD_ARTIFACTS_DIR/meta/
             - sleep: sleep 1m
     internal_fork2:
