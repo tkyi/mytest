@@ -1,10 +1,13 @@
 shared:
-  image: node:8
+  image: node:10
   steps:
     - echo: echo hi
 jobs:
   A:
     requires: [~commit]
+    steps:
+      - set: meta set foo 50876e6
+      - get: meta get foo
   B:
     requires: [~commit]
   C:
