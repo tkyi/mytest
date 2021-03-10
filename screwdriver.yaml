@@ -7,7 +7,6 @@ jobs:
         image: node:8
         steps:
             - echo: |
-                meta get meta.package.version --external sd@3983:external_fork1
                 cat $SD_SOURCE_DIR/ascii-art.txt
             - cat: cp -a /sd/meta/. $SD_ARTIFACTS_DIR/meta/
     
