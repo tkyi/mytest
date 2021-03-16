@@ -2,7 +2,7 @@ jobs:
     main:
         annotations:
             screwdriver.cd/buildPeriodically: '*/2 * * * *'
-        description: 'hello I am the first job that will run'
+        description: 'hello I am the first job that will runnnn'
         requires: [~pr, ~commit]
         image: node:8
         steps:
