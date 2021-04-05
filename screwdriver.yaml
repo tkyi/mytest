@@ -1,58 +1,17 @@
-#shared:
-#    image: node:8
-#jobs:
-#    # the main job is run in pull requests as well
-#    main:
-#        steps: 
-#            - install: npm install screwdriver-template-main
-#            - validate: ./node_modules/.bin/template-validate
-#            - publish: ./node_modules/.bin/template-publish
-#    tag:
-#        steps:
-#            - install: npm install screwdriver-template-main
-#            - token: echo $SD_TOKEN
-#            - tag: ./node_modules/.bin/template-tag --name tifftemplate --version 1.0.4 --tag latest
-#    use-tag:
-#        template: tifftemplate@latest
----
+shared:
+    image: node:8
+
+parameters:
+    region: "us-west-1"
+    az:
+        value: "1"
+        description: "default availability zone"
+    cluster: ["cluster1", "cluster2"]
+
 jobs:
     main:
-        description: 'hello I am the first job that will run'
         requires: [~pr, ~commit]
-        image: node:8
         steps:
-            - echo: |
-                meta get meta.package.version --external sd@3983:external_fork1
-                cat $SD_SOURCE_DIR/ascii-art.txt
-            - cat: cp -a /sd/meta/. $SD_ARTIFACTS_DIR/meta/
-    internal_fork1:
-        description: 'this is the production deploy job but really it just gets the external meta'
-        requires: [main]
-        image: node:8
-        steps:
-            - echo: meta set meta.package.version "3206-internal"
-            - overwrite: meta set sd.3983.external_fork1 ""
-            - cat: cp -a /sd/meta/. $SD_ARTIFACTS_DIR/meta/
-            - sleep: sleep 1m
-    internal_fork2:
-        description: 'this is the production deploy job but really it just gets the external meta'
-        requires: [main]
-        image: node:8
-        steps:
-            - echo: echo hi
-            - cat: cp -a /sd/meta/. $SD_ARTIFACTS_DIR/meta/
-    join_job:
-        description: 'job to test the specific branch requires feature'
-        requires: ['internal_fork1', 'internal_fork2', 'sd@3983:external_fork1', 'sd@3983:external_fork2']
-        image: node:8
-        steps:
-            - echo: meta get meta.package.version
-            #- echoExternal: meta get meta.package.version --external sd@3983:external_fork1
-            - cat: cp -a /sd/meta/. $SD_ARTIFACTS_DIR/meta/
-    join_downstream:
-        requires: ['join_job']
-        image: node:8
-        steps:
-            - echoExternal: meta get meta.package.version --external sd@3983:external_fork1
-            - cat: cp -a /sd/meta/. $SD_ARTIFACTS_DIR/meta/
-    
+            - step1: 'echo "Region: $(meta get parameters.region.value)"'
+            - step2: 'echo "AZ: $(meta get parameters.az.value)"'
+            - step3: 'echo "Cluster: $(meta get parameters.cluster.value)"'
