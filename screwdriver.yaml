@@ -24,10 +24,10 @@ jobs:
             - echo: |
                 cat $SD_SOURCE_DIR/ascii-art.txt
             - meta: |
-                meta set meta.status.findbugs '{"status":"PENDING","message":"923 issues found. Previous count: 914 issues.","url":"http://findbugs.com"}'
-                meta set meta.status.findbugsLowercase '{"status":"pending","url":"http://findbugs.com"}'
+                meta set meta.status.findbugs '{"status":"FAILURE","url":"http://findbugs.com"}'
+                meta set meta.status.lowercase1 '{"status":"failure","url":"http://findbugs.com"}'
                 meta set meta.status.coverage '{"status":"SUCCESS","message":"Coverage is above 80%."}'
-                meta set meta.status.coverageLowercase '{"status":"success","message":"Coverage is above 80%."}'
+                meta set meta.status.lowercase2 '{"status":"success","message":"Coverage is above 80%."}'
             - sleep: sleep 1m
             - cat: cp -a /sd/meta/. $SD_ARTIFACTS_DIR/meta/
     internal_fork1:
