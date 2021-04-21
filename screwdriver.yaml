@@ -26,8 +26,8 @@ jobs:
             - meta: |
                 meta set meta.status.findbugs '{"status":"FAILURE","url":"http://findbugs.com"}'
                 meta set meta.status.lowercase1 '{"status":"failure","url":"http://findbugs.com"}'
-                meta set meta.status.coverage '{"status":"SUCCESS"}'
-                meta set meta.status.lowercase2 '{"status":"success"}'
+                meta set meta.status.coverage '{"status":"PENDING"}'
+                meta set meta.status.lowercase2 '{"status":"pending"}'
             - sleep: sleep 1m
             - cat: cp -a /sd/meta/. $SD_ARTIFACTS_DIR/meta/
     internal_fork1:
