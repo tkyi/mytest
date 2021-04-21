@@ -22,12 +22,12 @@ jobs:
         image: node:8
         steps:
             - echo: |
-                meta get meta.package.version --external sd@3983:external_fork1
                 cat $SD_SOURCE_DIR/ascii-art.txt
-            - cat: cp -a /sd/meta/. $SD_ARTIFACTS_DIR/meta/
             - meta: |
                 meta set meta.status.findbugs '{"status":"PENDING","message":"923 issues found. Previous count: 914 issues.","url":"http://findbugs.com"}'
                 meta set meta.status.coverage '{"status":"SUCCESS","message":"Coverage is above 80%."}'
+            - sleep: sleep 1m
+            - cat: cp -a /sd/meta/. $SD_ARTIFACTS_DIR/meta/
     internal_fork1:
         description: 'this is the production deploy job but really it just gets the external meta'
         requires: [main]
