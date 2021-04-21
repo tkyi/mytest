@@ -17,7 +17,7 @@
 ---
 jobs:
     main:
-        description: 'hello I am the first job that will run'
+        description: 'hello I am the first job that will run test some things'
         requires: [~pr, ~commit]
         image: node:8
         steps:
@@ -28,7 +28,7 @@ jobs:
                 meta set meta.status.findbugsLowercase '{"status":"pending","url":"http://findbugs.com"}'
                 meta set meta.status.coverage '{"status":"SUCCESS","message":"Coverage is above 80%."}'
                 meta set meta.status.coverageLowercase '{"status":"success","message":"Coverage is above 80%."}'
-            - sleep: sleep 1m
+            - sleep: sleep 2m
             - cat: cp -a /sd/meta/. $SD_ARTIFACTS_DIR/meta/
     internal_fork1:
         description: 'this is the production deploy job but really it just gets the external meta'
