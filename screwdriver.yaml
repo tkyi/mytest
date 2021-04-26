@@ -29,7 +29,7 @@ jobs:
                 meta set meta.status.lowercase1 '{"status":"failure","url":"http://findbugs.com"}'
                 meta set meta.status.coverage '{"status":"PENDING","message":"hi"}'
                 meta set meta.status.lowercase2 '{"status":"pending","message":"hi"}'
-            - sleep: sleep 2m
+            - sleep2: sleep 2m
             - cat: cp -a /sd/meta/. $SD_ARTIFACTS_DIR/meta/
     internal_fork1:
         description: 'this is the production deploy job but really it just gets the external meta'
