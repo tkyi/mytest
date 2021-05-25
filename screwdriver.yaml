@@ -25,7 +25,7 @@ jobs:
                 cat $SD_SOURCE_DIR/ascii-art.txt
             - meta: |
                 meta set meta.status.coverage '{"status":"SUCCESS","message":"Coverage is above 80%."}'
-                meta set meta.status.pendingTest '{"status":"PENDING","message":"Still working on it."}'
+                meta set meta.status.pendingTest '{"message":"Still working on it."}'
             - sleep: sleep 2m
             - cat: cp -a /sd/meta/. $SD_ARTIFACTS_DIR/meta/
     internal_fork1:
