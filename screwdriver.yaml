@@ -23,7 +23,6 @@ jobs:
         steps:
             - echo: |
                 cat $SD_SOURCE_DIR/ascii-art.txt
-            - sleep: sleep 1m
             - meta: |
                 meta set meta.status.coverage '{"status":"SUCCESS","message":"Coverage is above 80%."}'
                 meta set meta.status.lowercase2 '{"status":"success","message":"Coverage is above 80%."}'
