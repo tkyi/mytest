@@ -16,5 +16,5 @@ jobs:
             - step2: 'echo "AZ: $(meta get parameters.az.value)"'
             - step3: 'echo "Cluster: $(meta get parameters.cluster.value)"'
             - step4: |
-                RESULT=$('echo "Cluster: $(meta get parameters.cluster.value)"')
+                RESULT=$(echo "Cluster: $(meta get parameters.cluster.value)")
                 echo $RESULT
