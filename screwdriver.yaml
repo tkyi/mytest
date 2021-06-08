@@ -10,6 +10,8 @@ parameters:
 
 jobs:
     main:
+        annotations:
+            screwdriver.cd/displayName: "display name"
         requires: [~pr, ~commit]
         steps:
             - step1: 'echo "Region: $(meta get parameters.region.value)"'
