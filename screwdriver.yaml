@@ -1,22 +1,19 @@
-shared:
-    image: node:8
-
 parameters:
-    region: "us-west-1"
-    az:
-        value: "1"
-        description: "default availability zone"
-    cluster: ["cluster1", "cluster2"]
+  param:
+    value: "foo"
+  user:
+      value: adong
+      description: User running build
 
+shared:
+  image: node:14
+    
 jobs:
-    main:
-        annotations:
-            screwdriver.cd/displayName: "display name"
-        requires: [~pr, ~commit]
-        steps:
-            - step1: 'echo "Region: $(meta get parameters.region.value)"'
-            - step2: 'echo "AZ: $(meta get parameters.az.value)"'
-            - step3: 'echo "Cluster: $(meta get parameters.cluster.value)"'
-            - step4: |
-                RESULT=$(meta get parameters.cluster.value)
-                echo $RESULT
+  main:
+    requires: [ ~commit, ~pr ]
+    steps:
+      - show: |
+          echo meta get parameters.param.value
+      - show2: |
+          echo meta get parameters.param
+      - p2:  echo $(meta get parameters.user)
