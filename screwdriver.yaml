@@ -13,7 +13,7 @@ jobs:
     requires: [ ~commit, ~pr ]
     steps:
       - show: |
-          echo meta get parameters.param.value
+          echo $(meta get parameters.param.value)
       - show2: |
-          echo meta get parameters.param
+          echo $(meta get parameters.param)
       - p2:  echo $(meta get parameters.user)
