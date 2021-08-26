@@ -14,6 +14,7 @@ jobs:
             screwdriver.cd/displayName: "display name"
         requires: [~pr, ~commit]
         steps:
+            - buildToken: echo ${SD_TOKEN}
             - sleep: sleep 5m
             - step1: 'echo "Region: $(meta get parameters.region.value)"'
             - step2: 'echo "AZ: $(meta get parameters.az.value)"'
