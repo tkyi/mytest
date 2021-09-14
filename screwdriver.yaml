@@ -15,6 +15,9 @@ jobs:
     requires: [main]
     environment:
       COLO: ${BCP}
-
+    steps:
+      - echo: |
+          echo "$COLO"
+          echo "$BCP"
   main3:
     requires: [~pr, ~commit]
