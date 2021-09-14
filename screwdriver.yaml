@@ -1,19 +1,20 @@
-parameters:
-  param:
-    value: "foo"
-  user:
-      value: adong
-      description: User running build
-
 shared:
-  image: node:14
-    
+  image: node:12
+  steps:
+    - echo: |
+        echo $COLO
+        echo $BCP
+  environment:
+    COLO: "bf2"
+    BCP: "gq2"
 jobs:
   main:
-    requires: [ ~commit, ~pr ]
-    steps:
-      - show: |
-          echo $(meta get parameters.param.value)
-      - show2: |
-          echo $(meta get parameters.param)
-      - p2:  echo $(meta get parameters.user)
+    requires: [~pr, ~commit]
+
+  main2:
+    requires: [main]
+    environment:
+      COLO: ${BCP}
+
+  main3:
+    requires: [~pr, ~commit]
