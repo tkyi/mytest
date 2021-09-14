@@ -5,22 +5,22 @@ shared:
         echo "$COLO"
         echo "$BCP"
   environment:
-    COLO: "bf2"
     BCP: "gq2"
+    COLO: "bf2"
 jobs:
   main:
     requires: [~pr, ~commit]
-
   main2:
     requires: [main]
     environment:
-      BCP: ${COLO}
+      COLO: ${BCP}
   main3:
     requires: [~pr, ~commit]
     environment:
-      COLO2: ${BCP}
+      BCP: ${COLO}
+      BCP2: ${COLO}
     steps:
       - echo: |
-          echo "$COLO"
           echo "$BCP"
-          echo "$COLO2"
+          echo "$BCP2"
+          echo "$COLO"
