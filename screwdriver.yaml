@@ -2,8 +2,8 @@ shared:
   image: node:12
   steps:
     - echo: |
-        echo $COLO
-        echo $BCP
+        echo "$COLO"
+        echo "$BCP"
   environment:
     COLO: "bf2"
     BCP: "gq2"
