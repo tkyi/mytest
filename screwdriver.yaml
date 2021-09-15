@@ -1,7 +1,7 @@
 shared:
-  image: node:10
+  image: node:12
   steps:
-    - echo: echo hii
+    - echo: echo hi
 jobs:
   A:
     requires: [~commit]
