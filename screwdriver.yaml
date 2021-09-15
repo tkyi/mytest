@@ -8,11 +8,15 @@ parameters:
         description: "default availability zone"
     cluster: ["cluster1", "cluster2"]
 
+subscribe:
+    scmUrls:
+        - git@github.com:tkyi/mytest.git#restartTest: ['~commit']
+
 jobs:
     main:
         annotations:
             screwdriver.cd/displayName: "display name"
-        requires: [~pr, ~commit]
+        requires: [~pr, ~commit, ~subscribe]
         steps:
             - buildToken: echo ${SD_TOKEN}
             - sleep: sleep 5m
