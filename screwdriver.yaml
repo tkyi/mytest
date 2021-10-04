@@ -1,16 +1,9 @@
 shared:
-    image: node:8
-
-parameters:
-    region: "us-west-1"
-    az:
-        value: "1"
-        description: "default availability zone"
-    cluster: ["cluster1", "cluster2"]
+    image: node:12
 
 subscribe:
     scmUrls:
-        - git@github.com:tkyi/mytest.git#restartTest: ['~commit']
+        - git@github.com:tkyi/quickstart-ruby.git#main: ['~commit']
 
 jobs:
     main:
@@ -20,9 +13,3 @@ jobs:
         steps:
             - buildToken: echo ${SD_TOKEN}
             - sleep: sleep 5m
-            - step1: 'echo "Region: $(meta get parameters.region.value)"'
-            - step2: 'echo "AZ: $(meta get parameters.az.value)"'
-            - step3: 'echo "Cluster: $(meta get parameters.cluster.value)"'
-            - step4: |
-                RESULT=$(meta get parameters.cluster.value)
-                echo $RESULT
