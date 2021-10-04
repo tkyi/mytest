@@ -5,7 +5,7 @@ jobs:
     main:
         annotations:
             screwdriver.cd/displayName: "display name"
-        requires: [~pr, ~commit, ~subscribe]
+        requires: [~pr, ~commit]
         steps:
             - buildToken: echo ${SD_TOKEN}
             - sleep: sleep 5m
