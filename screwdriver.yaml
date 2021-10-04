@@ -1,10 +1,6 @@
 shared:
     image: node:12
 
-subscribe:
-    scmUrls:
-        - git@github.com:tkyi/quickstart-ruby.git#main: ['~commit']
-
 jobs:
     main:
         annotations:
