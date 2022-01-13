@@ -48,7 +48,7 @@ jobs:
             - cat: cp -a /sd/meta/. $SD_ARTIFACTS_DIR/meta/
     join_job:
         description: 'job to test the specific branch requires feature'
-        requires: ['internal_fork1', 'internal_fork2', 'sd@3983:external_fork1', 'sd@3983:external_fork2']
+        requires: ['internal_fork1', 'internal_fork2']
         image: node:8
         steps:
             - echo: meta get meta.package.version
