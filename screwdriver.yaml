@@ -2,7 +2,6 @@ shared:
     image: node:14
 jobs:
     main:
-        description: 'hello I am the first job that will run'
         requires: [~pr, ~commit]
         steps:
             - echo: |
@@ -12,7 +11,6 @@ jobs:
                 meta set meta.status.lowercase2 '{"status":"success","message":"Coverage is above 80%."}'
                 meta set meta.status.pendingTest '{"status":"PENDING","message":"Still working on it."}'
                 meta set meta.status.lowercase3 '{"status":"pending","message":"Still working on it."}'
-            - sleep: sleep 1m
             - cat: cp -a /sd/meta/. $SD_ARTIFACTS_DIR/meta/
     next:
         description: 'this is the production deploy job but really it just gets the external meta'
@@ -21,7 +19,6 @@ jobs:
             - echo: meta set meta.package.version "3206-internal"
             - overwrite: meta set sd.3983.external_fork1 ""
             - cat: cp -a /sd/meta/. $SD_ARTIFACTS_DIR/meta/
-            - sleep: sleep 1m
         annotations:
             screwdriver.cd/jobDisabledByDefault: true
     
