@@ -18,7 +18,7 @@ jobs:
         description: 'this is the production deploy job but really it just gets the external meta'
         requires: [main]
         steps:
-            - echo: meta set meta.package.version "3206-internal"
+            - echo: meta set meta.package.version "this_is_for_a_PR"
             - overwrite: meta set sd.3983.external_fork1 ""
             - cat: cp -a /sd/meta/. $SD_ARTIFACTS_DIR/meta/
         annotations:
