@@ -1,35 +1,15 @@
-#shared:
-#    image: node:6
-#jobs:
-#    # the main job is run in pull requests as well
-#    main:
-#        steps: 
-#            - install: npm install screwdriver-template-main
-#            - validate: ./node_modules/.bin/template-validate
-#            - publish: ./node_modules/.bin/template-publish
-#    tag:
-#        steps:
-#            - install: npm install screwdriver-template-main
-#            - token: echo $SD_TOKEN
-#            - tag: ./node_modules/.bin/template-tag --name tifftemplate --version 1.0.4 --tag latest
-#    use-tag:
-#        template: tifftemplate@latest
----
+shared:
+  image: node:16
+
+annotations:
+  screwdriver.cd/chainPR: true
+
 jobs:
-    main:
-        requires: [~pr, ~commit]
-        image: node:8
-        steps:
-            #- set: meta set build_version_1 1234567
-            #- get: meta get build_version_1
-            #- sleep: sleep 1500
-            - postecho: |
-                cat $SD_SOURCE_DIR/ascii-art.txt
-            #- publish: npx semantic-release
-            #- install: npm install screwdriver-template-main
-            #- tag: ./node_modules/.bin/template-tag --name tifftemplate --version 1.0.4 --tag meow
-    detached:
-        image: node:8
-        steps:
-            - hi: echo hi
-            - meta: meta get example
+  test:
+    requires: [~pr, ~commit]
+    steps:
+      - echo "test"
+  test2:
+    requires: [test]
+    steps:
+      - echo "test"
