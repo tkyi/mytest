@@ -4,6 +4,7 @@ shared:
     - echo: |
         echo "$COLO"
         echo "$BCP"
+        echo "hi"
   environment:
     BCP: "gq2"
     COLO: "bf2"
