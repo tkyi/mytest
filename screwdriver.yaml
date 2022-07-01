@@ -7,6 +7,8 @@ shared:
   environment:
     BCP: "gq2"
     COLO: "bf2"
+annotations:
+  screwdriver.cd/chainPR: true
 jobs:
   main:
     requires: [~pr, ~commit]
