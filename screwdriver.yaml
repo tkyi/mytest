@@ -23,6 +23,7 @@ jobs:
     a:
         requires: [~commit, ~pr]
     b:
-        requires: [a, c]
+        requires: [~commit, ~pr]
+        blockedBy: [~a, ~c]
     c:
         requires: [~commit, ~pr]
