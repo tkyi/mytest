@@ -13,3 +13,7 @@ jobs:
     requires: [test]
     steps:
       - echo "test"
+  test3:
+    requires: [test2]
+    steps:
+      - echo "test"
